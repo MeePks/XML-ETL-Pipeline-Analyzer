@@ -9,7 +9,7 @@ audit_name="HomeDepot"
 server_name="" #servername in which trackingmaps table is available
 db_name=""   #databse in which tracking Maps table is .
 TrackerLoadLogDB=""
-actian_copy_path=r"\\usadcrtlssisp02\d$\Actian_Sunset_Retail\DPTeam\_Audits" +"\\"+ audit_name+"\\"
+actian_copy_path=r"" #copies XML file so that the orignal files doesn't change
 if not os.path.exists(actian_copy_path):
     os.makedirs(actian_copy_path)
 
