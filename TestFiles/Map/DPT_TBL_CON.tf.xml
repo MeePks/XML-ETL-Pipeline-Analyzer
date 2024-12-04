@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--======  Transformation XML ======-->
+<!-- <!DOCTYPE Transformation SYSTEM "DJMap.dtd"> -->
+<Transformation schemaVersion = "1.2" version = "1.22" creator = "tho.le" datecreated = "2016-07-18T19:39:11+05:30" author = "CCA-AUDIT\pikesh.maharjan" datemodified = "2023-12-20T03:27:20.273-05:00" partial = "no">
+  <LogManager loglocation = "\\ccaintranet.com\dfs-dc-01\Data\Retail\Overwaitea\Actian11\Peoplesoft.log" messagetypemask = "15"/>
+  <ProfileManager enabled = "False" outputfile = "\\USADCRTLSSISP02\d$\Actian_Sunset_Retail\DPTeam\Pikesh.Maharjan\ActianMaps\OverWaitea\Output\profile.out" filter = "-1"/>
+  <MacroManager>
+    <MacroSets>
+      <MacroSet name = "GLOBAL"/>
+    </MacroSets>
+  </MacroManager>
+  <TransformationOptions>
+    <Option name = "truncationhandling" value = "2"/>
+    <Option name = "overflowhandling" value = "2"/>
+    <Option name = "nonullshandling" value = "2"/>
+    <Option name = "maxerrorcount" value = "1"/>
+    <Option name = "logfieldcount" value = "5"/>
+    <Option name = "clearlogbeforerun" value = "yes"/>
+  </TransformationOptions>
+  <TransformationSources>
+    <TransformationSource name = "TransformationSource1" connectorname = "ASCII (Delimited)">
+      <TransformationSourceOptions>
+        <Option name = "codepage" value = "ANSI"/>
+        <Option name = "recsep" value = "LF"/>
+        <Option name = "fieldcount" value = "0"/>
+        <Option name = "fldsep" value = "~"/>
+        <Option name = "fldsdelim" value = "None"/>
+        <Option name = "fldedelim" value = "None"/>
+        <Option name = "header" value = "False"/>
+        <Option name = "altfldsep" value = "None"/>
+        <Option name = "soffset" value = "0"/>
+        <Option name = "autostyle" value = "False"/>
+        <Option name = "stylesamplesize" value = "5000"/>
+        <Option name = "lstrip" value = "False"/>
+        <Option name = "tstrip" value = "False"/>
+        <Option name = "field1isrectypeid" value = "False"/>
+        <Option name = "nullind" value = "none"/>
+        <Option name = "emptyfieldsnull" value = "False"/>
+        <Option name = "numericformatnormalization" value = "False"/>
+        <Option name = "layoutmismatch" value = "0"/>
+      </TransformationSourceOptions>
+      <DataAccess>
+        <ConnectionInfo>
+          <ResMgrSession name = "RMSession1" type = "ASCII (Delimited)"/>
+          <ConnectionDetail location = "\\usadcrtlssisp02\d$\Actian_Sunset_Retail\DPTeam\Pikesh.Maharjan\OverWaitea\2023-12-05\OF_DPT_TBL_CON.txt">
+            <UExtra><![CDATA[0@@]]></UExtra>
+          </ConnectionDetail>
+        </ConnectionInfo>
+        <SampleInfo type = "All"/>
+        <DataAccessOptions>
+          <Option name = "filterrecordlimit" value = "2147483647"/>
+          <Option name = "sortduplicaterecordsallowed" value = "True"/>
+        </DataAccessOptions>
+      </DataAccess>
+    </TransformationSource>
+  </TransformationSources>
+  <TransformationTargets>
+    <TransformationTarget name = "TransformationTarget1" connectorname = "SQL Server 2005 Mass Insert" outputmode = "Replace" updatemode = "UpdateEvery" updatewithnullfields = "no" replacefullrecord = "yes">
+      <TransformationTargetOptions>
+        <Option name = "encoding" value = "OEM"/>
+        <Option name = "commitfrequency" value = "0"/>
+        <Option name = "constraintddl"/>
+        <Option name = "systables" value = "False"/>
+        <Option name = "views" value = "True"/>
+        <Option name = "idwrites" value = "False"/>
+        <Option name = "tablock" value = "True"/>
+        <Option name = "updateaddmismatch" value = "True"/>
+        <Option name = "layoutmismatch" value = "0"/>
+        <Option name = "recordrepetitioncount" value = "0"/>
+      </TransformationTargetOptions>
+      <DataAccess>
+        <ConnectionInfo>
+          <ResMgrSession name = "RMSession1" type = "SQL Server 2005 Mass Insert" server = "overwaitea.stg.sql.ccaintranet.com" resourcemanager = "OverwaiteaDataPeopleSoft"/>
+          <ConnectionDetail table = "dbo.DPT_TBL_CON_jws_test"/>
+        </ConnectionInfo>
+        <SampleInfo type = "All"/>
+        <DataAccessOptions>
+          <Option name = "filterrecordlimit" value = "2147483647"/>
+        </DataAccessOptions>
+      </DataAccess>
+    </TransformationTarget>
+  </TransformationTargets>
+  <TransformationMap mapname = "DPT_TBL_CON.map.xml" originallocation = "\\USADCRTLSSISP02\d$\Actian_Sunset_Retail\DPTeam\Pikesh.Maharjan\ActianMaps\OverWaitea"/>
+</Transformation>
